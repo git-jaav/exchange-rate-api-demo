@@ -1,0 +1,34 @@
+###################### GENERAL ####################
+###################################################
+swagger:
+  info:
+    title: API balance account
+    description: Api para apoyo al balance de cuentas y tipos de cambio
+    version: 1.0.0
+    contact:
+      name: José Alfonso Arauco Villar - JAAV
+      url: localhost:8080
+      email: araucovillar@gmail.com
+
+---
+###################################################
+###################### PROFILE DEV ####################
+###################################################
+spring:
+  profiles: dev
+  application:
+    name: my_demo
+
+  cache:
+    type: redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+
+application:
+  http-client:
+    sunat-net:
+      url: "https://api.apis.net.pe/v1/"
+
+server:
+  port: ${vcap.application.port:8088}
